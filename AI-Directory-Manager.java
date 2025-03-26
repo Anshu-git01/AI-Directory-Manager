@@ -56,10 +56,10 @@ public class Fjkldjsglkjdfklgager {
     }
 
     private String getFileExtension(File file) {
-        
+       
     }
 
     public static void main(String[] args) {
-        
+      
     }
 }
