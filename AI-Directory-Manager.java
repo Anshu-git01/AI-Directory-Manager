@@ -56,10 +56,18 @@ public class Fjkldjsglkjdfklgager {
     }
 
     private String getFileExtension(File file) {
-       
+        String name = file.getName();
+        int lastIndex = name.lastIndexOf(".");
+        return (lastIndex == -1) ? "" : name.substring(lastIndex).toLowerCase();
     }
 
     public static void main(String[] args) {
-      
+        if (args.length == 0) {
+            System.out.println("Usage: java FileManager <directory_path>");
+            return;
+        }
+        FileManager fm = new FileManager(args[0]);
+        fm.scan();
+        fm.organize();
     }
 }
