@@ -96,6 +96,25 @@ class FileManager {
 }
 
 
+import java.io.*;
+class AIClassifier {
+    public String classify(String filePath) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String firstLine = br.readLine();
+            if (firstLine.contains("import")) return "Code (Java)";
+            if (firstLine.contains("#include")) return "Code (C++)";
+            if (firstLine.contains("class")) return "Possible Java Code";
+        } catch (IOException e) {
+            return "Unknown";
+        }
+        return "General Document";
+    }
+
+    public static void main(String[] args) {
+        AIClassifier ai = new AIClassifier();
+        System.out.println(ai.classify("example.java"));
+    }
+}
 
 
 
